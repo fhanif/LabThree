@@ -10,9 +10,19 @@ public class Main {
 
         do {
             System.out.println("Enter an integer: ");
+
+            while (!scnr.hasNextInt()) {
+                System.out.println("Invalid entry. Please enter an integer value.");
+                scnr.next();
+            }
+
             userNum = scnr.nextInt();
 
-            /*while (!scnr.hasNextInt()) {
+            /*
+            System.out.println("Enter an integer: ");
+            userNum = scnr.nextInt();
+
+            while (!scnr.hasNextInt()) {
                 System.out.println("Invalid entry. Please enter an integer value.");
                 scnr.nextLine();
                 userNum = scnr.nextInt();
@@ -25,11 +35,11 @@ public class Main {
 
 
             int i = 0;
-            for (i = 1; i <= userNum; i++) { //for loop for finding squares and cubes
+            for (i = 1; i <= Math.abs(userNum); i++) { //for loop for finding squares and cubes
                 int iSquared;
                 int iCubed;
-                iSquared = (int) Math.abs(Math.pow(i, 2));
-                iCubed = (int) Math.abs(Math.pow(i, 3));
+                iSquared = (int) Math.pow(i, 2); //abs seems to make no diff -- still doesn't work for neg #
+                iCubed = (int) Math.pow(i, 3);
                 System.out.printf("%-22d%-22d%-22d\n", i, iSquared, iCubed); //printing answers in columns
             }
 
@@ -41,6 +51,6 @@ public class Main {
 
         System.out.println("End of program.");
     }
-
+//why won't it work for negative numbers???
 }
 
